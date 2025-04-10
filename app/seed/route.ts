@@ -81,6 +81,8 @@ async function seedCustomers() {
 }
 
 async function seedRevenue() {
+  await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+
   await sql`
     CREATE TABLE IF NOT EXISTS revenue (
       month VARCHAR(4) NOT NULL UNIQUE,
